@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Dibujos</title>
+    <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+    <header>
+        <h1>Galería de Dibujos</h1>
+        <nav>
+            <ul>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="catalogo" id="catalogo">
+            <h2>Catalogo</h2>
+            <div class="filter">
+                <label for="category">Selecciona una categoría:</label>
+                <select id="category">
+                    <option value="caricaturas">Caricaturas</option>
+                    <option value="paisajes">Paisajes</option>
+                    <option value="anime">Anime</option>
+                </select>
+            </div>
+            <div class="gallery" id="imageGallery">
+                <img src="images/caricatura1.jpg" alt="Caricatura 1" class="caricaturas">
+                <img src="images/caricatura2.jpg" alt="Caricatura 2" class="caricaturas">
+                <img src="images/caricatura3.jpg" alt="Caricatura 3" class="caricaturas">
+                <img src="images/caricatura4.jpg" alt="Caricatura 4" class="caricaturas">
+                <img src="images/paisaje1.jpg" alt="Paisaje 1" class="paisajes">
+                <img src="images/paisaje2.jpg" alt="Paisaje 2" class="paisajes">
+                <img src="images/paisaje3.jpg" alt="Paisaje 3" class="paisajes">
+                <img src="images/anime1.jpg" alt="Anime 1" class="anime">
+                <img src="images/anime2.jpg" alt="Anime 2" class="anime">
+            </div>
+        </section>
+    
+    
+        <section class="sobre-nosotros" id="sobre-nosotros">
+            <h2 class="h2-info">Sobre Nosotros</h2>
+            <div class="info">
+                <p>Somos un grupo de apasionados artistas que aman crear y compartir su arte con el mundo. Nuestra misión es proporcionar una plataforma donde podamos exhibir nuestros dibujos y conectarnos con personas que comparten nuestra pasión por el arte.</p>
+                <p>En nuestro sitio, encontrarás una variedad de dibujos en diferentes categorías, incluyendo caricaturas, paisajes y anime. Cada obra de arte es única y refleja nuestra creatividad y dedicación.</p>
+                <p>Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con nosotros a través del formulario de contacto. Estamos emocionados de compartir nuestro trabajo contigo y esperamos que disfrutes explorando nuestra galería de dibujos.</p>
+            </div>
+        </section>
+    
+        <section class="contacto" id="contacto">
+            <h2>Contacto</h2>
+            <p class="p-contacto">Si deseas contactarnos, por favor completa el siguiente formulario:</p>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        
+                <input class="btn" type="submit" value="Enviar">
+            </form>
+        </section>
+        <section class="PS">
+            <a class="linkA" href="https://catedras.linti.unlp.edu.ar/mod/quiz/attempt.php?attempt=79789&cmid=38211">Actividad 1 - Proyecto de software</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Autor: Nicolas De Rose</p>
+    </footer>
+    <script>
+        const categorySelect = document.getElementById("category");
+        const imageGallery = document.getElementById("imageGallery");
+    
+        // Función para ocultar todas las imágenes excepto las de la categoría seleccionada
+        function mostrarImagenesDeCategoria(categoria) {
+            const images = imageGallery.getElementsByClassName(categoria);
+    
+            // Oculta todas las imágenes
+            Array.from(imageGallery.children).forEach(function (child) {
+                child.style.display = "none";
+            });
+    
+            // Muestra las imágenes de la categoría seleccionada
+            Array.from(images).forEach(function (img) {
+                img.style.display = "block";
+            });
+        }
+    
+        // Escucha el evento de cambio en el menú desplegable y muestra las imágenes de la categoría predeterminada
+        categorySelect.addEventListener("change", function () {
+            const selectedCategory = categorySelect.value;
+            mostrarImagenesDeCategoria(selectedCategory);
+        });
+    
+        // Muestra las imágenes de la categoría predeterminada al cargar la página
+        mostrarImagenesDeCategoria(categorySelect.value);
+    </script>
+</body>
+</html>
